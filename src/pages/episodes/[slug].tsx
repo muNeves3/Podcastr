@@ -69,6 +69,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: [],
     fallback: "blocking",
   }
+
+  // fallback - true/"blocking" incremental static regeneration
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {

@@ -28,6 +28,10 @@ module.exports = {
         ],
         rules: {
           'prettier/prettier': ['error', {}, { usePrettierrc: true }], // Includes .prettierrc.js rules
+
+          "@typescript-eslint/explicit-function-return-type": {
+            "allowExpressions": true
+          },
           // We will use TypeScript's types for component props instead
           'react/prop-types': 'off',
 
@@ -41,13 +45,13 @@ module.exports = {
           '@typescript-eslint/no-unused-vars': ['error'],
 
           // I suggest this setting for requiring return types on functions only where useful
-          '@typescript-eslint/explicit-function-return-type': [
-            'warn',
-            {
-              allowExpressions: true,
-              allowConciseArrowFunctionExpressionsStartingWithVoid: true,
-            },
-          ],
+          // '@typescript-eslint/explicit-function-return-type': [
+          //   'off',
+          //   {
+          //     allowExpressions: true,
+          //     allowConciseArrowFunctionExpressionsStartingWithVoid: true,
+          //   },
+          // ],
 
         },
       },
