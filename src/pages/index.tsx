@@ -1,6 +1,7 @@
 import { format } from "date-fns"
 import { parseISO } from "date-fns"
 import Image from "next/image"
+import Head from "next/head"
 import Link from "next/link"
 import ptBR from "date-fns/locale/pt-BR"
 import { GetStaticProps } from "next"
@@ -8,9 +9,7 @@ import api from "../services/api"
 import { converDurationToTimeString } from "../utils/converDurationToTimeString"
 
 import styles from "./home.module.scss"
-import { useContext } from "react"
-import { PlayerContext } from "../context/PlayerContext"
-
+import { usePlayer } from "../context/PlayerContext"
 // SPA
 // SSR
 // SSG
@@ -33,12 +32,17 @@ interface HomeProps {
 }
 
 export default function Home({ allEpisodes, latestEpisodes }: HomeProps) {
-  const { playList } = useContext(PlayerContext)
+  const { playList } = usePlayer();
 
   const episodeList = [...latestEpisodes, ...allEpisodes]
 
   return (
     <div className={styles.homePage}>
+      <Head>
+        <title>
+          Home | Podcastr
+        </title>
+      </Head>
       <section className={styles.latestEpisodes}>
         <h2>Últimos lançamentos</h2>
         <ul>
